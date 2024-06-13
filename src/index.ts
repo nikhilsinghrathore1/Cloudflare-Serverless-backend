@@ -12,7 +12,16 @@
  */
 
 export default {
-	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response('Hello World!');
+	async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+		if(request.method === "GET"){
+			return Response.json({
+				msg:"you sent a get request"
+			})
+		}
+		else{
+			return Response.json({
+				msg:"you sent a request that is not get"
+			})
+		}
 	},
 };
